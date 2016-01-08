@@ -17,6 +17,7 @@ class Unicron
 
         $this->criteria = md5($criteria);
         $this->pid_file = $pid_storage .'/'. $this->criteria;
+
     }
 
     public function getPidFile()
