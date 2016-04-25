@@ -1,8 +1,6 @@
 <?php
 use Absszero\Unicron\Unicron;
 
-require_once dirname(__FILE__) . "/../vendor/autoload.php";
-
 class UnicronTest extends PHPUnit_Framework_TestCase
 {
     protected $unicron;
