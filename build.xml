@@ -225,21 +225,18 @@
   <property name="phpcpd.done" value="true"/>
  </target>
 
-<target name="composer" description="Installing composer dependencies">
- <exec executable="composer" failonerror="true">
-  <arg value="install" />
-  <arg value="--dev" />
-  <arg value="--prefer-dist" />
-  <arg value="--no-progress" />
-
-  <!-- <env key="SYMFONY_ENV" value="test"/> -->
- </exec>
-</target>
-
  <target name="phpunit"
          unless="phpunit.done"
          depends="prepare"
          description="Run unit tests with PHPUnit">
+
+  <exec executable="composer" failonerror="true">
+    <arg value="install" />
+    <arg value="--dev" />
+    <arg value="--prefer-dist" />
+    <arg value="--no-progress" />
+  </exec>
+
   <exec executable="${phpunit}" resultproperty="result.phpunit" taskname="phpunit">
    <arg value="--configuration"/>
    <arg path="${basedir}/phpunit.xml"/>
