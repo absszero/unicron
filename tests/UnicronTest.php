@@ -1,7 +1,7 @@
-<?php
+<?php namespace Absszero\Unicron\Test;
 use Absszero\Unicron\Unicron;
 
-class UnicronTest extends PHPUnit_Framework_TestCase
+class UnicronTest extends \PHPUnit_Framework_TestCase
 {
     protected $unicron;
     /**
