@@ -231,7 +231,7 @@
          description="Run unit tests with PHPUnit">
 
   <exec executable="composer" failonerror="true">
-    <arg value="install" />
+    <arg value="update" />
     <arg value="--prefer-dist" />
     <arg value="--no-progress" />
   </exec>
