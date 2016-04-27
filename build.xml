@@ -232,7 +232,6 @@
 
   <exec executable="composer" failonerror="true">
     <arg value="install" />
-    <arg value="--dev" />
     <arg value="--prefer-dist" />
     <arg value="--no-progress" />
   </exec>
