@@ -26,4 +26,13 @@
         <log type="testdox-html" target="build/testdox/index.html"/>
     </logging>
 
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+            <exclude>
+                <!-- <file>../src/autoload.php</file> -->
+            </exclude>
+        </whitelist>
+    </filter>
+
 </phpunit>
