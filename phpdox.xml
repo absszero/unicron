@@ -7,7 +7,7 @@
   </collector>
 
   <generator output="build">
-   <enrich base="logs">
+   <enrich base="build/logs">
     <source type="build" />
     <source type="git" />
     <source type="phploc" />
