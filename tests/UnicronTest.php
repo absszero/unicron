@@ -2,6 +2,9 @@
 
 use Absszero\Unicron\Unicron;
 
+/**
+ * @covers Absszero\Unicron\Unicron
+ */
 class UnicronTest extends \PHPUnit_Framework_TestCase
 {
     protected $unicron;
@@ -16,9 +19,7 @@ class UnicronTest extends \PHPUnit_Framework_TestCase
         $this->unicron = new Unicron('test');
     }
 
-    /**
-     * @covers Absszero\Unicron\Unicron
-     */
+
     public function testRunningStates()
     {
         $this->unicron->setPid();
