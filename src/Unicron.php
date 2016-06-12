@@ -5,6 +5,9 @@ class Unicron
     private $criteria;
     private $pid_file;
 
+    const UNIX_KILL = 'kill -9';
+    const WIN_KILL = 'TASKKILL /PID';
+
     public function __construct($criteria, $pid_storage = null)
     {
         if (is_null($pid_storage)) {
@@ -27,17 +30,21 @@ class Unicron
 
     public function isRunning()
     {
-        return is_file($this->pid_file);
+        return is_file($this->getPidFile());
     }
 
     public function kill()
     {
-        $windows = ('WIN' === strtoupper(substr(PHP_OS, 0, 3)));
+        $os_code = strtoupper(substr(PHP_OS, 0, 3));
+        $kill = ('WIN' === $os_code) ? self::WIN_KILL : self::UNIX_KILL;
 
-        if (!$windows and $this->isRunning()) {
+        if ($this->isRunning()) {
             $pid = $this->getPid();
-            exec("kill -9 $pid");
+            $command = escapeshellcmd("$kill $pid");
+            exec($command);
         }
+
+        return $command;
     }
 
     public function setPid($pid = null)
@@ -45,19 +52,18 @@ class Unicron
         if (is_null($pid)) {
             $pid = getmypid();
         }
-
-        return file_put_contents($this->pid_file, $pid);
+        return file_put_contents($this->getPidFile(), $pid);
     }
 
     public function getPid()
     {
-        return (int)file_get_contents($this->pid_file);
+        return file_get_contents($this->getPidFile());
     }
 
     public function withdraw()
     {
         if ($this->isRunning()) {
-            unlink($this->pid_file);
+            unlink($this->getPidFile());
         }
     }
 

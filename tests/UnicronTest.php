@@ -24,8 +24,21 @@ class UnicronTest extends \PHPUnit_Framework_TestCase
     {
         $this->unicron->setPid();
         $this->assertTrue($this->unicron->isRunning());
-
-        $this->unicron->withdraw();
-        $this->assertFalse($this->unicron->isRunning());
     }
+
+    public function testPid()
+    {
+        $pid = 99999999999;
+        $this->unicron->setPid($pid);
+        $this->assertEquals($pid, $this->unicron->getPid());
+    }
+
+    public function testWithDraw()
+    {
+        $file = $this->unicron->getPidFile();
+        $this->unicron = null;
+
+        $this->assertFalse(file_exists($file));
+    }
+
 }
