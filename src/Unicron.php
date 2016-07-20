@@ -27,7 +27,7 @@ class Unicron
     {
         return $this->pid_file;
     }
-
+`
     public function isRunning()
     {
         return is_file($this->getPidFile());
