@@ -6,8 +6,7 @@ Managing processes by process ids and prevent duplicating processes.
 
 ## Installation
 
-`composer require PHP
-absszero/unicron`
+`composer require absszero/unicron`
 
 ## Usage
 
@@ -18,7 +17,7 @@ $unicron = new Unicron('YOUR_PROCESS_NAME');
 
 if ($unicron->isRunning()) {
 	$unicron->kill();
-} 
+}
 
 $unicron->setPid();
 ~~~
