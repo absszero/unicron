@@ -12,13 +12,7 @@
         "php": ">=5.2.1"
     },
     "require-dev": {
-        "pdepend/pdepend": "2.2.*",
-        "sebastian/phpcpd": "2.0.*",
-        "squizlabs/php_codesniffer": "2.6.*",
-        "theseer/phpdox": "0.8.*",
-        "phploc/phploc": "3.0.*",
-        "phpmd/phpmd": "2.4.*",
-        "phpunit/phpunit": "5.4.*"
+        "phpunit/phpunit": "5.*"
     },
     "autoload": {
         "psr-4": {
